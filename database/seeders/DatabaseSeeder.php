@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Theme;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,13 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            BlogSeeder::class,
-            LogTypeSeeder::class,
-            PageSeeder::class,
-            RoleSeeder::class,
-            SiteSettingSeeder::class,
-            ThemeSeeder::class,
-        ]);
+        // \App\Models\User::factory(10)->create();
     }
 }
