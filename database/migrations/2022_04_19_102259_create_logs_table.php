@@ -17,6 +17,8 @@ class CreateLogsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('log_type_id');
+            $table->string('status');
+            $table->string('controller');
             $table->text('data');
             $table->timestamps();
         });

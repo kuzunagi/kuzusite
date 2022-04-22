@@ -14,12 +14,14 @@ class LogController extends Controller
         return Log::all();
     }
 
-    public function store($type, $data)
+    public function store($controller, $type, $status, $data = null)
     {
         $value = LogType::select('id')->where('name', $type)->first();
         Log::create([
             'user_id' => Auth::id(),
             'type' => $value,
+            'controller' => $controller,
+            'status' => $status,
             'data' => $data
         ]);
     }
