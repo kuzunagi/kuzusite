@@ -53,4 +53,15 @@ class User extends Authenticatable
     {
         $this->belongsToMany(MailingTemplate::class);
     }
+
+    public function classrooms()
+    {
+        $this->morphToMany(Classroom::class, 'classroomable');
+    }
+
+    public function comments()
+    {
+        $this->hasMany(Comment::class);
+    }
+
 }

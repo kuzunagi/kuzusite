@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePermissionablesTable extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreatePermissionablesTable extends Migration
      */
     public function up()
     {
-        Schema::create('permissionables', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('permission_id');
-            $table->unsignedBigInteger('permissionable_id');
+            $table->string('name');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
+            $table->unsignedBigInteger('deleted_by')->nullable();
         });
     }
 
@@ -28,6 +31,6 @@ class CreatePermissionablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permissionables');
+        Schema::dropIfExists('tags');
     }
 }

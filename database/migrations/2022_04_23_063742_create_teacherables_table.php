@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePermissionablesTable extends Migration
+class CreateTeacherablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreatePermissionablesTable extends Migration
      */
     public function up()
     {
-        Schema::create('permissionables', function (Blueprint $table) {
+        Schema::create('teacherables', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('permission_id');
-            $table->unsignedBigInteger('permissionable_id');
+            $table->unsignedBigInteger('teacher_id');
+            $table->unsignedBigInteger('teacherable_id');
+            $table->text('teacherable_type');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreatePermissionablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permissionables');
+        Schema::dropIfExists('teacherables');
     }
 }
